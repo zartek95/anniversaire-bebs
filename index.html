@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <title>Joyeux Anniversaire Bebs 💜</title>
 
-  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
   <style>
@@ -15,10 +14,17 @@
       background: linear-gradient(135deg, #f3e6ff, #ffffff);
       color: #5a189a;
       text-align: center;
+      /* C'est ici que la magie opère pour remplir l'écran */
+      min-height: 100vh; /* Oblige le corps à faire toute la hauteur de l'écran */
+      display: flex;
+      flex-direction: column;
+      justify-content: center; /* Centre verticalement */
+      align-items: center; /* Centre horizontalement */
     }
 
     .container {
-      padding: 60px 20px;
+      /* On adapte les espacements pour qu'ils soient relatifs à l'écran */
+      padding: 5vh 20px; 
       max-width: 700px;
       margin: auto;
     }
@@ -26,8 +32,14 @@
     h1 {
       font-size: 2.8em;
       color: #7b2cbf;
-      margin-bottom: 20px;
+      margin-bottom: 2vh;
       animation: fadeIn 2s ease;
+    }
+
+    /* Le bloc contenant le premier texte */
+    #main-message {
+        margin-bottom: 3vh;
+        animation: fadeIn 2s ease;
     }
 
     p {
@@ -38,12 +50,12 @@
 
     .heart {
       font-size: 35px;
-      margin: 20px 0;
+      margin: 2vh 0;
       animation: pulse 1.5s infinite;
     }
 
     button {
-      margin-top: 30px;
+      margin-top: 3vh;
       padding: 15px 30px;
       border: none;
       border-radius: 30px;
@@ -61,13 +73,32 @@
       box-shadow: 0 8px 20px rgba(157, 78, 221, 0.5);
     }
 
+    /* --- NOUVEAUX STYLES POUR LA RÉVÉLATION --- */
+
     #secret {
       margin-top: 25px;
       font-weight: 500;
       color: #6a0dad;
-      animation: fadeIn 2s ease;
+      
+      /* C'est ici que l'effet de transition est caché */
+      opacity: 0; /* Complètement transparent au départ */
+      transform: translateY(-20px); /* Légèrement décalé vers le haut */
+      transition: all 0.8s ease; /* Définit la durée de la transition (0.8 seconde) */
+      pointer-events: none; /* Empêche de cliquer dessus quand il est caché */
+      height: 0; /* Pas de hauteur */
+      overflow: hidden; /* Cache le contenu */
     }
 
+    /* Style appliqué quand le secret est révélé */
+    #secret.show {
+      opacity: 1; /* Complètement opaque */
+      transform: translateY(0); /* Retourne à sa position normale */
+      pointer-events: auto; /* On peut cliquer dessus */
+      height: auto; /* Reprend sa hauteur naturelle */
+      padding-bottom: 5vh; /* Petit espacement en bas */
+    }
+
+    /* --- ANIMATIONS EXISTANTES --- */
     @keyframes pulse {
       0% { transform: scale(1); }
       50% { transform: scale(1.2); }
@@ -93,21 +124,23 @@
 
   <h1>Joyeux Anniversaire Bebs 💜</h1>
 
-  <p>
-    Aujourd’hui c’est pas un jour normal… c’est le jour où la plus belle personne que je connais est née 💜  
-    Depuis que t’es dans ma vie, tout est devenu plus doux, plus beau, plus vrai.  
-
-    T’as ce pouvoir de me faire sourire même quand tout va mal…  
-    et honnêtement, j’vois plus ma vie sans toi.  
-
-    Je te souhaite tout le bonheur du monde, parce que tu le mérites vraiment 🤍
-  </p>
+  <div id="main-message">
+    <p>
+        Aujourd’hui c’est pas un jour normal… c’est le jour où la plus belle personne que je connais est née 💜  
+        Depuis que t’es dans ma vie, tout est devenu plus doux, plus beau, plus vrai.  
+    
+        T’as ce pouvoir de me faire sourire même quand tout va mal…  
+        et honnêtement, j’vois plus ma vie sans toi.  
+    
+        Je te souhaite tout le bonheur du monde, parce que tu le mérites vraiment 🤍
+    </p>
+  </div>
 
   <div class="heart">💜</div>
 
-  <button onclick="showMessage()">&gt; Azy clique ici &lt;</button>
+  <button id="main-btn" onclick="showMessage()">&gt; Azy clique ici &lt;</button>
 
-  <p id="secret" style="display:none;">
+  <p id="secret">
     Je t’aime plus que les mots peuvent le dire…  
     et même quand j’fais le con, c’est toujours toi que j’choisis 💜  
 
@@ -119,9 +152,19 @@
 
 <script>
   function showMessage() {
-    document.getElementById("secret").style.display = "block";
+    // 1. On cache le bouton
+    document.getElementById("main-btn").style.display = "none";
+    
+    // 2. On change la hauteur du premier message pour qu'il soit plus court
+    // (cela permet de libérer de la place pour le message caché sans qu'il 
+    // apparaisse d'un coup, créant une transition plus douce)
+    document.getElementById("main-message").style.marginBottom = "0vh";
+    
+    // 3. On ajoute la classe 'show' au message secret pour déclencher la transition CSS
+    document.getElementById("secret").classList.add("show");
   }
 </script>
 
 </body>
 </html>
+
