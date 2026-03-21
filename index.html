@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Joyeux Anniversaire Bebs 💜</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f3e6ff, #ffffff);
+      color: #5a189a;
+      text-align: center;
+    }
+
+    .container {
+      padding: 60px 20px;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    h1 {
+      font-size: 2.8em;
+      color: #7b2cbf;
+      margin-bottom: 20px;
+      animation: fadeIn 2s ease;
+    }
+
+    p {
+      font-size: 1.2em;
+      line-height: 1.8;
+      color: #4a4a4a;
+    }
+
+    .heart {
+      font-size: 35px;
+      margin: 20px 0;
+      animation: pulse 1.5s infinite;
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 30px;
+      background: linear-gradient(135deg, #9d4edd, #c77dff);
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(157, 78, 221, 0.3);
+      animation: blink 1.5s infinite;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(157, 78, 221, 0.5);
+    }
+
+    #secret {
+      margin-top: 25px;
+      font-weight: 500;
+      color: #6a0dad;
+      animation: fadeIn 2s ease;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes blink {
+      0% { opacity: 1; }
+      50% { opacity: 0.4; }
+      100% { opacity: 1; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <h1>Joyeux Anniversaire Bebs 💜</h1>
+
+  <p>
+    Aujourd’hui c’est pas un jour normal… c’est le jour où la plus belle personne que je connais est née 💜  
+    Depuis que t’es dans ma vie, tout est devenu plus doux, plus beau, plus vrai.  
+
+    T’as ce pouvoir de me faire sourire même quand tout va mal…  
+    et honnêtement, j’vois plus ma vie sans toi.  
+
+    Je te souhaite tout le bonheur du monde, parce que tu le mérites vraiment 🤍
+  </p>
+
+  <div class="heart">💜</div>
+
+  <button onclick="showMessage()">&gt; Azy clique ici &lt;</button>
+
+  <p id="secret" style="display:none;">
+    Je t’aime plus que les mots peuvent le dire…  
+    et même quand j’fais le con, c’est toujours toi que j’choisis 💜  
+
+    <br><br>
+    <strong>Signé : le con qui te sert de mec 😌💜</strong>
+  </p>
+
+</div>
+
+<script>
+  function showMessage() {
+    document.getElementById("secret").style.display = "block";
+  }
+</script>
+
+</body>
+</html>
