@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+   <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
@@ -24,9 +24,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      
-      /* --- CORRECTION DE L'IMAGE D'ARRIÈRE-PLAN --- */
-      /* J'utilise un lien direct différent pour la rose, espérons que celui-ci tienne */
+      /* On utilise le lien direct de ta rose pour l'arrière-plan */
       background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
                         url('https://i.ibb.co/6R86zZpS/1000867127.jpg');
       background-size: cover;
@@ -35,13 +33,12 @@
       color: white;
       text-align: center;
       padding: 0 20px;
-      position: relative; /* Pour positionner l'indicateur de scroll */
+      position: relative;
     }
 
     .hero h1 {
       font-size: 2.5em;
       text-shadow: 2px 2px 15px rgba(0,0,0,0.7);
-      margin: 0; /* Évite les décalages */
       animation: fadeIn 2s ease;
     }
 
@@ -93,24 +90,19 @@
       background: white;
       z-index: 999;
       overflow-y: auto;
-      padding: 40px 0; /* Enlève le padding horizontal pour que le collage puisse être grand */
+      padding: 40px 0;
       text-align: center;
       opacity: 0;
       transition: opacity 1s ease;
     }
 
-    #final-surprise .container {
-      padding: 0 10px; /* Remet un petit padding pour le texte seulement */
-    }
-
-    /* --- CORRECTION DE LA TAILLE DU COLLAGE --- */
     .collage {
-      width: 95%; /* Prend 95% de la largeur de l'écran */
-      max-width: 800px; /* Mais pas plus de 800px pour ne pas être trop grande sur tablette/PC */
-      height: auto; /* Garde les proportions */
+      width: 95%; /* Prend presque toute la largeur */
+      max-width: 800px;
+      height: auto;
       border-radius: 15px;
-      margin: 25px auto; /* Centre horizontalement */
-      display: block; /* S'assure qu'il est centré avec margin: auto */
+      margin: 20px auto;
+      display: block;
       box-shadow: 0 15px 40px rgba(0,0,0,0.15);
       animation: zoomIn 1s ease;
     }
@@ -167,19 +159,19 @@
   </div>
 
   <div id="final-surprise">
-    <div class="container">
+    <div style="padding: 0 15px;">
       <h2 style="color: #7b2cbf; font-size: 2.2em; margin-bottom: 0;">Pour toi... 💜</h2>
       
-      <img src="https://i.ibb.co/6RpCFGLn/1000867139.jpg" alt="Notre Collage" class="collage">
+      <img src="https://i.ibb.co/LzyP849T/1000867144.jpg" alt="Notre Collage" class="collage">
 
-      <p style="font-size: 1.3em; color: #6a0dad; font-weight: 500; line-height: 1.8; padding: 0 10px; margin-top: 10px;">
+      <p style="font-size: 1.3em; color: #6a0dad; font-weight: 500; line-height: 1.8; margin-top: 15px;">
         “T’es pas juste ma copine… t’es mon monde entier 💜<br>
         Même quand je fais le con, rappelle-toi que c’est toi que j’ai choisi… 🤍”
       </p>
 
-      <div style="font-size: 35px; margin: 20px 0;">😌💜</div>
+      <div style="font-size: 35px; margin: 15px 0;">😌💜</div>
       
-      <p style="color: #4a4a4a; font-size: 1.1em; margin-bottom: 40px;"><strong>PS : c'était me R4PH 😌💜</strong></p>
+      <p style="color: #4a4a4a; font-size: 1.1em; margin-bottom: 30px;"><strong>PS : c'était me R4PH 😌💜</strong></p>
       
       <button onclick="location.reload()" style="background: none; border: 1px solid #ddd; padding: 10px 20px; border-radius: 10px; color: #999; margin-bottom: 50px;">Revoir du début</button>
     </div>
@@ -192,10 +184,11 @@
     setTimeout(() => {
       surprise.style.opacity = '1';
     }, 50);
-    // On remonte au début de la nouvelle page
+    // On remonte au début
     surprise.scrollTo(0, 0);
   }
 </script>
 
 </body>
 </html>
+
